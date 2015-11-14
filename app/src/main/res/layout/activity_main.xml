@@ -1,11 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3A3C46"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
 
-    <TextView android:text="Hello World!" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mainActivity_welcome"
+        android:textSize="50sp"
+        android:id="@+id/mainActivity_welcome"
+        android:padding="20dp"
+        android:textColor="#8a8a8e"
+        android:layout_marginTop="98dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mainActivity_loginButton"
+        android:id="@+id/mainActivity_loginButton"
+        android:layout_marginTop="72dp"
+        android:paddingStart="74dp"
+        android:paddingEnd="74dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:background="#8a8a8e"
+        android:textColor="#3A3C46"
+        android:layout_below="@+id/mainActivity_welcome"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mainActivity_signUp"
+        android:id="@+id/mainActivity_signupButton"
+        android:paddingStart="70dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:background="#8a8a8e"
+        android:textColor="#3A3C46"
+        android:paddingEnd="70dp"
+        android:layout_below="@+id/mainActivity_loginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp" />
+
+
 </RelativeLayout>

@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">ProjectApplication02</string>
+    <string name="mainActivity_welcome">Welcome!</string>
+    <string name="mainActivity_loginButton">Log in</string>
+    <string name="mainActivity_signUp">Sign Up</string>
+    <string name="loginPage_title">Log In</string>
+    <string name="loginPage_editText_email">Email</string>
+    <string name="loginPage_editText_password">Password</string>
+    <string name="loginPage_button">Log In</string>
+    <string name="signupPage_title">Sign Up</string>
+    <string name="signupPage_editText_password">Password</string>
+    <string name="signupPage_editText_email">Email</string>
+    <string name="signupPage_editText_username">Username</string>
+    <string name="signupPage_editText_password_c">Retype Password</string>
+    <string name="signupPage_button_signup">Create an Account</string>
 </resources>
