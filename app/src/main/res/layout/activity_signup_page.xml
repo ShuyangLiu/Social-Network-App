@@ -72,11 +72,23 @@
         android:layout_margin="5dp"
         android:layout_alignParentStart="true" />
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint = "@string/signup_editText_birthday"
+        android:id="@+id/signupPage_editText_birthday"
+        android:textColor="@color/text"
+        android:textColorHint="@color/hint"
+        android:layout_below="@id/signupPage_editText_password_c"
+        android:padding="15dp"
+        android:layout_margin="5dp"
+        android:layout_alignParentStart="true"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/signupPage_button_signup"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="10dp"
         android:paddingStart="70dp"
         android:paddingEnd="70dp"
         android:paddingTop="20dp"
@@ -84,7 +96,7 @@
         android:background="@color/button_background"
         android:textColor="@color/button_text"
         android:id="@+id/signupPage_button_signup"
-        android:layout_below="@+id/signupPage_editText_password_c"
+        android:layout_below="@+id/signupPage_editText_birthday"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
