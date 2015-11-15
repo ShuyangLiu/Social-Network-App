@@ -70,4 +70,14 @@ public class PostFeed
     public void setContent(String content) {
         mContent = content;
     }
+
+    @Override
+    public String toString() {
+        return "PostFeed{" +
+                "Content='" + mContent + '\n' +
+                ", Email='" + mEmail + '\n' +
+                ", TimePosted=" + mTimePosted + '\n' +
+                ", PhotoPath='" + mPhotoPath + '\n' +
+                '}';
+    }
 }
