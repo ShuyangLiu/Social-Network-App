@@ -13,19 +13,15 @@ import android.widget.Toast;
 import csc296.projectapplication02.model.User;
 import csc296.projectapplication02.model.UserCollection;
 
-public class SignupPage extends AppCompatActivity {
+public class SignupPage extends AppCompatActivity
+{
+    private EditText mEmail;
+    private EditText mPassword;
+    private EditText mPassword_c;
+    private EditText mUsername;
+    private EditText mBirthday;
 
-
-    TextView mTitle;
-    EditText mEmail;
-    EditText mPassword;
-    EditText mPassword_c;
-    EditText mUsername;
-    EditText mBirthday;
-    Button mButton;
-
-    UserCollection mCollection;
-
+    private UserCollection mCollection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +30,7 @@ public class SignupPage extends AppCompatActivity {
 
         mCollection = UserCollection.get(getApplicationContext());
 
-        mTitle = (TextView) findViewById(R.id.signupPage_title);
+        TextView title = (TextView) findViewById(R.id.signupPage_title);
 
         mEmail = (EditText) findViewById(R.id.signupPage_editText_email);
 
@@ -46,22 +42,21 @@ public class SignupPage extends AppCompatActivity {
 
         mBirthday = (EditText) findViewById(R.id.signupPage_editText_birthday);
 
-        mButton = (Button) findViewById(R.id.signupPage_button_signup);
+        Button button = (Button) findViewById(R.id.signupPage_button_signup);
 
         Typeface raleway = Typeface.createFromAsset(getAssets(),
                 "raleway/Raleway-Regular.ttf");
 
-        mTitle.setTypeface(raleway);
+        title.setTypeface(raleway);
         mEmail.setTypeface(raleway);
         mPassword.setTypeface(raleway);
         mPassword_c.setTypeface(raleway);
         mUsername.setTypeface(raleway);
-        mButton.setTypeface(raleway);
+        button.setTypeface(raleway);
 
-        mButton.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: Add a new user to the database!
 
                 String email = mEmail.getText().toString();
                 String password = mPassword.getText().toString();
@@ -69,31 +64,29 @@ public class SignupPage extends AppCompatActivity {
                 String birthday = mBirthday.getText().toString();
                 String username = mUsername.getText().toString();
 
-
-                if(password.equals(password_c))
+                if (password.equals(password_c))
                 {
-                    User user = new User(email,password,birthday,username);
+                    if(mCollection.checkUserExist(email)) {
+                        Toast.makeText(getApplicationContext(),
+                                "This email is already registered! " +
+                                        "Please log in or use another email to register",
+                                Toast.LENGTH_SHORT).show();
+                    } else {
+                        User user = new User(email, password, birthday, username);
 
-                    mCollection.addUser(user);//add the user to the database
+                        mCollection.addUser(user);//add the user to the database
 
-                    Intent intent = new Intent(SignupPage.this,LoginPage.class);
+                        Intent intent = new Intent(SignupPage.this, LoginPage.class);
 
-                    startActivity(intent);
-                }
-                else
-                {
-                    //Give a Toast
-
+                        startActivity(intent);
+                    }
+                } else {
                     Toast.makeText(getApplicationContext(),
                             "Your password and confirmed password are not the same! " +
                                     "Please check and submit again!",
                             Toast.LENGTH_SHORT).show();
                 }
-
-
-
             }
         });
-
     }
 }
