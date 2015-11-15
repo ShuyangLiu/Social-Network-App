@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +23,8 @@ public class SignupPage extends AppCompatActivity
     private EditText mBirthday;
 
     private UserCollection mCollection;
+
+    public static final String TAG = "Project02";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,12 +76,10 @@ public class SignupPage extends AppCompatActivity
                                 Toast.LENGTH_SHORT).show();
                     } else {
                         User user = new User(email, password, birthday, username);
-
                         mCollection.addUser(user);//add the user to the database
-
                         Intent intent = new Intent(SignupPage.this, LoginPage.class);
-
                         startActivity(intent);
+                        Log.i(TAG,"[SignupPage]: successfully created a new account");
                     }
                 } else {
                     Toast.makeText(getApplicationContext(),

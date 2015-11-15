@@ -14,4 +14,5 @@
     <string name="signupPage_editText_password_c">Retype Password</string>
     <string name="signupPage_button_signup">Create an Account</string>
     <string name="signup_editText_birthday">Birthday(dd/mm/yy)</string>
+    <string name="homePage_testText">This is gonna be the home screen after logged in!</string>
 </resources>

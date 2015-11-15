@@ -66,9 +66,13 @@ public class UserCollection
     public boolean checkUserExist(String email)
     {
         User user = mHashMap.get(email);
-
         return user != null;
+    }
 
+    public boolean passwordCorrect(String email,String password)
+    {
+        User user = mHashMap.get(email);
+        return password.equals(user.getPassword());
     }
 
     /*helper method to return a hash map according to the database*/
