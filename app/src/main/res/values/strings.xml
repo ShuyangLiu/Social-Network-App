@@ -15,4 +15,7 @@
     <string name="signupPage_button_signup">Create an Account</string>
     <string name="signup_editText_birthday">Birthday(dd/mm/yyyy)</string>
     <string name="homePage_testText">This is gonna be the home screen after logged in!</string>
+    <string name="title_activity_drawer__home_page">Drawer_HomePage</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

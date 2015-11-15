@@ -6,7 +6,13 @@ import csc296.projectapplication02.R;
 public class User
 {
 
-    private String mEmail , mPassword , mBirthday , mFullName , mProfilePicture;
+    private String mEmail;
+    private String mPassword;
+    private String mBirthday;
+    private String mFullName;
+    private String mProfilePicture;
+    private String mHomeTown;
+    private String mBio;
 
     public User(String email, String password, String birthday,
                 String fullName)
@@ -24,18 +30,15 @@ public class User
         //default profile picture uri, use setter to change it to user photo
         mProfilePicture = "drawable://" + R.drawable.profile_filled;
 
-    }
+        //default bio is a message showing there is not bio yet
+        //The user can write a short BIO in the profile setting page
+        mBio = "You haven't write your BIO yet...\n" +
+                "Get started by editing it in profile setting!";
 
-    @Override
-    public String toString()
-    {
-        return "User{" +
-                "mEmail='" + mEmail + '\n' +
-                ", mPassword='" + mPassword + '\n' +
-                ", mBirthday='" + mBirthday + '\n' +
-                ", mFullName='" + mFullName + '\n' +
-                ", mProfilePicture='" + mProfilePicture + '\n' +
-                '}';
+        //default hometown
+        //The user can edit it in the profile setting page
+        mHomeTown = "Earth";
+
     }
 
     public String getEmail()
@@ -86,5 +89,34 @@ public class User
     public void setProfilePicture(String profilePicture)
     {
         mProfilePicture = profilePicture;
+    }
+
+    public String getBio() {
+        return mBio;
+    }
+
+    public void setBio(String bio) {
+        mBio = bio;
+    }
+
+    public String getHomeTown() {
+        return mHomeTown;
+    }
+
+    public void setHomeTown(String homeTown) {
+        mHomeTown = homeTown;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "Email='" + mEmail + '\n' +
+                ", Password='" + mPassword + '\n' +
+                ", Birthday='" + mBirthday + '\n' +
+                ", FullName='" + mFullName + '\n' +
+                ", ProfilePicture='" + mProfilePicture + '\n' +
+                ", HomeTown='" + mHomeTown + '\n' +
+                ", Bio='" + mBio + '\n' +
+                '}';
     }
 }

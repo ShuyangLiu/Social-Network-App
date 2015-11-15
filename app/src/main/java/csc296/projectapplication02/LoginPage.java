@@ -48,31 +48,43 @@ public class LoginPage extends AppCompatActivity
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: check the email and password and log in
 
                 String email = mEmail.getText().toString();
                 String password = mPassword.getText().toString();
 
-                if (mCollection.checkUserExist(email)) {
-                    if (mCollection.passwordCorrect(email, password)) {
+                if (mEmail.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(),
+                            "Email should not be empty!",
+                            Toast.LENGTH_SHORT).show();
+                } else if (mPassword.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(),
+                            "Password should not be empty!",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+
+                    if (mCollection.checkUserExist(email)) {
+                        if (mCollection.passwordCorrect(email, password)) {
                         /*successfully logged in*/
-                        Intent intent = new Intent(LoginPage.this,HomePage.class);
-                        intent.putExtra(EMAIL_KEY,email);
-                        startActivity(intent);
-                        Log.i(TAG,"[LoginPage]: successfully logged in");
-                    } else {
+                            Intent intent = new Intent(LoginPage.this, HomePage.class);
+                            intent.putExtra(EMAIL_KEY, email);
+                            /*reset the edit text field*/
+                            mEmail.setText("");
+                            mPassword.setText("");
+                            startActivity(intent);
+                            Log.i(TAG, "[LoginPage]: successfully logged in");
+                        } else {
                         /*wrong password*/
+                            Toast.makeText(getApplicationContext(),
+                                    "Incorrect Password. Please try again",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                    /*email not found*/
                         Toast.makeText(getApplicationContext(),
-                                "Incorrect Password. Please try again",
+                                "Email not exist. Please sign up",
                                 Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    /*email not found*/
-                    Toast.makeText(getApplicationContext(),
-                            "Email not exist. Please sign up",
-                            Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
     }

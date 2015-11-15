@@ -16,18 +16,20 @@ public class Cursor_Wrapper extends CursorWrapper
 
     public User getUser()
     {
-
         String email = getString(getColumnIndex(Schema.Users.Cols.EMAIL));
         String password = getString(getColumnIndex(Schema.Users.Cols.PASSWORD));
         String birthday = getString(getColumnIndex(Schema.Users.Cols.BIRTH_DATE));
         String fullName = getString(getColumnIndex(Schema.Users.Cols.FULL_NAME));
         String photoPath = getString(getColumnIndex(Schema.Users.Cols.PROFILE_PIC));
+        String bio = getString(getColumnIndex(Schema.Users.Cols.BIO));
+        String hometown = getString(getColumnIndex(Schema.Users.Cols.HOMETOWN));
 
         User user = new User(email,password,birthday,fullName);
         user.setProfilePicture(photoPath);
+        user.setBio(bio);
+        user.setHomeTown(hometown);
 
         return user;
-
     }
 
 

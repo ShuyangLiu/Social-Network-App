@@ -29,6 +29,8 @@ public class OpenHelper extends SQLiteOpenHelper
                         + Schema.Users.Cols.PASSWORD + ", "
                         + Schema.Users.Cols.FULL_NAME + ", "
                         + Schema.Users.Cols.BIRTH_DATE + ", "
+                        + Schema.Users.Cols.BIO + ", "
+                        +Schema.Users.Cols.HOMETOWN + ", "
                         + Schema.Users.Cols.PROFILE_PIC + ")"
         );
 
@@ -61,7 +63,6 @@ public class OpenHelper extends SQLiteOpenHelper
     {
         /*
         * For upgrading the database according to schema
-        * not really needed in this project
         */
     }
 }

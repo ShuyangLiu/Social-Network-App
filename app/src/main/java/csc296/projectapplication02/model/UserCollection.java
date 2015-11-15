@@ -58,6 +58,8 @@ public class UserCollection
         values.put(Schema.Users.Cols.BIRTH_DATE,user.getBirthday());
         values.put(Schema.Users.Cols.FULL_NAME, user.getFullName());
         values.put(Schema.Users.Cols.PROFILE_PIC, user.getProfilePicture());
+        values.put(Schema.Users.Cols.HOMETOWN,user.getHomeTown());
+        values.put(Schema.Users.Cols.BIO,user.getBio());
 
         return values;
     }

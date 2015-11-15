@@ -15,6 +15,8 @@ public class Schema
             public static final String PASSWORD = "password";
             public static final String FULL_NAME = "full_name";
             public static final String BIRTH_DATE = "birth_date";
+            public static final String BIO = "biography";
+            public static final String HOMETOWN = "hometown";
             public static final String PROFILE_PIC = "profile_pic";
         }
     }

@@ -36,13 +36,9 @@ public class SignupPage extends AppCompatActivity
         TextView title = (TextView) findViewById(R.id.signupPage_title);
 
         mEmail = (EditText) findViewById(R.id.signupPage_editText_email);
-
         mPassword = (EditText) findViewById(R.id.signupPage_editText_password);
-
         mPassword_c = (EditText) findViewById(R.id.signupPage_editText_password_c);
-
         mUsername = (EditText) findViewById(R.id.signupPage_editText_username);
-
         mBirthday = (EditText) findViewById(R.id.signupPage_editText_birthday);
 
         Button button = (Button) findViewById(R.id.signupPage_button_signup);
@@ -67,25 +63,71 @@ public class SignupPage extends AppCompatActivity
                 String birthday = mBirthday.getText().toString();
                 String username = mUsername.getText().toString();
 
-                if (password.equals(password_c))
+                if(mEmail.getText().toString().equals(""))
                 {
-                    if(mCollection.checkUserExist(email)) {
-                        Toast.makeText(getApplicationContext(),
-                                "This email is already registered! " +
-                                        "Please log in or use another email to register",
-                                Toast.LENGTH_SHORT).show();
-                    } else {
-                        User user = new User(email, password, birthday, username);
-                        mCollection.addUser(user);//add the user to the database
-                        Intent intent = new Intent(SignupPage.this, LoginPage.class);
-                        startActivity(intent);
-                        Log.i(TAG,"[SignupPage]: successfully created a new account");
-                    }
-                } else {
                     Toast.makeText(getApplicationContext(),
-                            "Your password and confirmed password are not the same! " +
-                                    "Please check and submit again!",
+                            "Email should not be empty!",
                             Toast.LENGTH_SHORT).show();
+                }
+                else if(mUsername.getText().toString().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(),
+                            "Username should not be empty!",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else if(mPassword.getText().toString().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(),
+                            "Password should not be empty!",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else if(mPassword_c.getText().toString().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(),
+                            "Confirmed Password should not be empty!",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else if(mBirthday.getText().toString().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(),
+                            "Birthday should not be empty!",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else if(!mBirthday.getText().toString().matches("([0-9]{2})/([0-9]{2})/([0-9]{4})"))
+                {
+                    Toast.makeText(getApplicationContext(),
+                            "Invalid birthday input. Birthday should match the format: dd/mm/yyyy",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+
+                    if (password.equals(password_c)) {
+                        if (mCollection.checkUserExist(email)) {
+                            Toast.makeText(getApplicationContext(),
+                                    "This email is already registered! " +
+                                            "Please log in or use another email to register",
+                                    Toast.LENGTH_SHORT).show();
+                        } else {
+                            User user = new User(email, password, birthday, username);
+                            /*add the user to the database*/
+                            mCollection.addUser(user);
+                            /*reset the edit text field*/
+                            mEmail.setText("");
+                            mPassword.setText("");
+                            mBirthday.setText("");
+                            mPassword_c.setText("");
+                            mUsername.setText("");
+                            Intent intent = new Intent(SignupPage.this, LoginPage.class);
+                            startActivity(intent);
+                            Log.i(TAG, "[SignupPage]: successfully created a new account");
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(),
+                                "Your password and confirmed password are not the same! " +
+                                        "Please check and submit again!",
+                                Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
