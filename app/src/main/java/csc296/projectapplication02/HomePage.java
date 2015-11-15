@@ -1,6 +1,7 @@
 package csc296.projectapplication02;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -15,10 +16,17 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+        Typeface raleway = Typeface.createFromAsset(getAssets(),
+                "raleway/Raleway-Regular.ttf");
+
         TextView testText = (TextView) findViewById(R.id.homePage_testText);
         Intent intent = getIntent();
         String email = intent.getStringExtra(EMAIL_KEY);
 
-        testText.setText("Current user email: " + email);
+        String msg = "Current user email: " + email;
+        testText.setText(msg);
+        testText.setTypeface(raleway);
     }
+
+
 }
