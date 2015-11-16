@@ -28,7 +28,7 @@ public class User
         mFullName = fullName;
 
         //default profile picture uri, use setter to change it to user photo
-        mProfilePicture = "drawable://" + R.drawable.profile_filled;
+        mProfilePicture = "android.resource://csc296/projectapplication02/drawable/" + R.drawable.ic_face_black_24dp;
 
         //default bio is a message showing there is not bio yet
         //The user can write a short BIO in the profile setting page

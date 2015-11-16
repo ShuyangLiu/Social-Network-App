@@ -58,8 +58,26 @@ public class HomePage extends AppCompatActivity {
             case R.id.home_menu_my_posting:
             {
                 Intent i = new Intent(this,CreatePostPage.class);
+                i.putExtra(EMAIL_KEY, mEmail);
+                startActivity(i);
+                return true;
+            }
+
+            case R.id.home_menu_my_log_out:
+            {
+                Intent i = new Intent(this,MainActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+
+                return true;
+            }
+
+            case R.id.home_menu_my_profile:
+            {
+                Intent i = new Intent(this,MyProfile.class);
                 i.putExtra(EMAIL_KEY,mEmail);
                 startActivity(i);
+                return true;
             }
         }
 
