@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/setting_menu_home"
+        android:icon="@drawable/ic_home_white_24dp"
+        android:title="@string/my_profile_menu_home"
+        app:showAsAction="ifRoom|withText"
+        />
+
+    <item
+        android:id="@+id/setting_menu_my_profile"
+        android:icon="@drawable/ic_perm_identity_white_24dp"
+        android:title="@string/homePage_menu_my_profile"
+        app:showAsAction="ifRoom|withText"
+        />
+
+    <item
+        android:title="@string/homePage_menu_log_out"
+        android:icon="@drawable/ic_exit_to_app_white_24dp"
+        android:id="@+id/setting_menu_my_log_out"
+        app:showAsAction="ifRoom|withText"/>
+
+    <item
+        android:id="@+id/setting_menu_my_favorite"
+        android:icon="@drawable/ic_grade_white_24dp"
+        android:title="@string/homePage_menu_my_favorite"
+        app:showAsAction="ifRoom|withText"
+        />
+
+    <item
+        android:title="@string/homePage_menu_new_post"
+        android:icon="@drawable/ic_create_white_24dp"
+        android:id="@+id/setting_menu_my_posting"
+        app:showAsAction="ifRoom|withText"/>
+
+</menu>

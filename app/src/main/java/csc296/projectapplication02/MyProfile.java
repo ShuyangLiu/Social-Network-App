@@ -11,6 +11,8 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -69,7 +71,9 @@ public class MyProfile extends AppCompatActivity
 //                context.getResources().getResourceEntryName(R.drawable.ic_face_black_24dp) );
 //        Bitmap p = getScaledBitmap(uri.getPath(),200,200);
 //        mPhoto.setImageBitmap(p);
-        mPhoto.setImageResource(R.drawable.ic_face_black_24dp);
+
+
+        mPhoto.setImageResource(R.drawable.bmo);
 
     }
 
@@ -111,4 +115,54 @@ public class MyProfile extends AppCompatActivity
         return BitmapFactory.decodeFile(path, scaledOptions);
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.my_profile_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId())
+        {
+            case R.id.my_profile_menu_my_posting:
+            {
+                Intent i = new Intent(this,CreatePostPage.class);
+                i.putExtra(EMAIL_KEY, mEmail);
+                startActivity(i);
+                return true;
+            }
+
+            case R.id.my_profile_menu_my_log_out:
+            {
+                Intent i = new Intent(this,MainActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+
+                return true;
+            }
+
+            case R.id.my_profile_menu_my_settings:
+            {
+                Intent i = new Intent(this,SettingPage.class);
+                i.putExtra(EMAIL_KEY, mEmail);
+                startActivity(i);
+                return true;
+            }
+
+            case R.id.my_profile_menu_home:
+            {
+                Intent i = new Intent(this,HomePage.class);
+                i.putExtra(EMAIL_KEY,mEmail);
+                startActivity(i);
+                return true;
+            }
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }

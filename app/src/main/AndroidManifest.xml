@@ -29,6 +29,8 @@
         </activity>
         <activity android:name=".MyProfile" >
         </activity>
+        <activity android:name=".SettingPage" >
+        </activity>
     </application>
 
 </manifest>

@@ -51,6 +51,14 @@ public class UserCollection
                 user.toString());
     }
 
+    public void updateUser(User user)
+    {
+        ContentValues values = getContentValues_user(user);
+        mDatabase.update(Schema.Users.NAME, values, "_id "+"="+1, null);
+        Log.i(TAG, "[UserCollection]: User successfully updated to the database!\n" +
+                user.toString());
+    }
+
     private static ContentValues getContentValues_user(User user)
     {
         ContentValues values = new ContentValues();
@@ -74,6 +82,8 @@ public class UserCollection
         Log.i(TAG, "[UserCollection]: User successfully added to the database!\n" +
                 p.toString());
     }
+
+
 
     private static ContentValues getContentValues_post(PostFeed postFeed)
     {

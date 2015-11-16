@@ -29,4 +29,12 @@
     <string name="create_post_editText">Write something here...</string>
     <string name="create_post_take_picture">Take a Picture!</string>
     <string name="create_post_submit">POST</string>
+    <string name="my_profile_menu_home">Home</string>
+    <string name="setting_title">Setting</string>
+    <string name="setting_name">Full Name</string>
+    <string name="setting_email">Email</string>
+    <string name="setting_hometown">Hometown</string>
+    <string name="setting_bio">biography</string>
+    <string name="setting_submit">SUBMIT</string>
+    <string name="setting_birthday">Birthday</string>
 </resources>
